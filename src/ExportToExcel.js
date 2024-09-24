@@ -7,7 +7,22 @@ export const ExportToExcel = ({fileName }) => {
   const fileExtension = ".xlsx";
 
   const exportToCSV = (jsonData, fileName) => {
-    const ws = XLSX.utils.json_to_sheet(jsonData);
+    const converted = Object.entries(jsonData.phrases)
+    const ws = XLSX.utils.json_to_sheet(converted);
+    // const ws = {
+    //     "A1": {
+    //         v: "Name",
+    //         t: "s",
+    //     },
+    //     "A2": {
+    //         v: 1,
+    //         t: "n",
+    //     },
+    //     "A3": {
+    //         v: 2,
+    //         t: "n",
+    //     }
+    // }
     const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
     const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
     const data = new Blob([excelBuffer], { type: fileType });
@@ -16,9 +31,10 @@ export const ExportToExcel = ({fileName }) => {
 
   const onChange = async (event) => {
     if (event.target.files) {
-      const parsedData = await readJsonFile(event.target.files[0])
+      const parsedData = await readJsonFile(event.target.files[0]);
 
-      console.log(parsedData)
+      console.log(parsedData);
+      exportToCSV(parsedData, fileName);
     }
   }
 
