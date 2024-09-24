@@ -53,6 +53,6 @@ export const ExportToExcel = ({fileName }) => {
     })
   
   return (
-    <input type="file" accept=".json,application/json" onChange={onChange} />
+    <input type="file" onChange={onChange} />
   );
 };
