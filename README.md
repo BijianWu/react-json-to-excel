@@ -1,3 +1,13 @@
+# example json file provided should be:
+{
+    "phrases": {
+        "MY_TEXT_HEADING": "translated"
+    }
+}
+
+then it will be split as 2 collumns in excel
+MY_TEXT_HEADING translated
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
