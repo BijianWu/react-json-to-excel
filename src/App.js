@@ -19,6 +19,16 @@ function App() {
 
   return (
     <div className="App">
+      <div>
+      {
+       ` { 
+          "phrases" : {
+            "MY_PHRASE": "my phrase",
+            "MY_PHRASE_1": "my phrase 1",
+          }
+        } `
+      }
+      </div>
       <ExportToExcel   fileName={fileName} />
     </div>
   );
